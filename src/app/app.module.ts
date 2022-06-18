@@ -3,14 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FlightInfoComponent } from './flight-info/flight-info.component';
+import { BookFlightComponent } from './book-flight/book-flight.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FlightInfoComponent,
+    BookFlightComponent,
+   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
