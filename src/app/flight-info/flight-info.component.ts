@@ -9,27 +9,41 @@ import { FlightInfoModel } from './flight-info.model';
 
 export class FlightInfoComponent implements OnInit {
 
-  flightInfo1: FlightInfoModel;
-  flightInfo2: FlightInfoModel;
+  flightInfo: FlightInfoModel[] ;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.flightInfo1 = 
-    {
-      "flightNumber" : "AI409",
-      "origin": "Delhi",
-      "destination": "Patna"
-    };
-  
+    this.flightInfo = 
+    [
+      {
+        "flightNumber" : "AI409",
+        "origin": "Delhi",
+        "destination": "Patna"
+      },
+      {
+        "flightNumber" : "AI430",
+        "origin": "Delhi",
+        "destination": "Mumbai"
+      },
+      {
+        "flightNumber" : "AI402",
+        "origin": "Washington",
+        "destination": "Delhi"
+      },
+      {
+        "flightNumber" : "AI402",
+        "origin": "Patna",
+        "destination": "BiharSharif"
+      },
+      {
+        "flightNumber" : "AI402",
+        "origin": "Gaya",
+        "destination": "Kolkatta"
+      }  
 
-    this.flightInfo2 = 
-    {
-      "flightNumber" : "AI402",
-      "origin": "Washington",
-      "destination": "Delhi"
-    };
 
+    ];  
   }
 
 

@@ -11,3 +11,8 @@
 .flight-info:hover {
     background-color: rgb(230, 230, 228);
 }
+
+.flight-error {
+    color: red;
+    text-align: center;
+}
