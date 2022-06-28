@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="jumbotron">
-      <h1>Fligth Search Application</h1>
+      <h1>Flight Search Application</h1>
       <h2>Search flight </h2>
     </div>
     
@@ -10,21 +10,80 @@
 
 
 <div class="container">
- 
+  <section>
     <div *ngIf="flightInfo == null" class="row flight-info flight-error">
         Flight Information not available
     </div>
-    <div *ngFor="let flight of flightInfo" class="row flight-info" >
-        <div class="col-md-3">
-            {{flight.flightNumber}}
-        </div>
-        <div class="col-md-3">          
-            {{flight.origin}}
-        </div>
-        <div class="col-md-3">
-            {{flight.destination}}
-        </div>
+    <div class="row flight-info-header" >
+      <div class="col-md-2">
+       
+          Flight
+      </div>
+      <div class="col-md-2">
+       
+        <mat-icon>flight_takeoff</mat-icon>
+        
+        Departure
     </div>
+    <div class="col-md-2">
+     
+        <mat-icon>flight_land</mat-icon>
+     
+
+      Arrival
+  </div>
+  <div class="col-md-1">
+     
+  Departure
+</div>
+<div class="col-md-1">
+     
+  Arrival
+</div>
+<div class="col-md-1">
+  <mat-icon>build</mat-icon> 
+  status
+</div>
+
+  <div class="col-md-3">
+    
+    </div>
+  </div>
+  <div *ngFor="let flight of flightInfo">
+      <div  *ngIf="flight.status !== 'Canceled'" class="row flight-info" >         
+       
+        <div class="col-md-2">
+            <!-- <img src="{{flight.logo}}" width="25px" height="25px" /> -->
+            <mat-icon> flight</mat-icon>
+            {{flight.flightNumber}}            
+          </div>
+        <div class="col-md-1">      
+         
+            {{flight.originAirport}} <span style="font-size:14px"> - {{flight.origin}}</span>
+        </div>
+        <div class="col-md-1">
+          {{flight.destAirport}} <span style="font-size:14px"> - {{flight.destination}}</span>
+          
+        </div>
+        <div class="col-md-1">
+          {{flight.departureTime | date: 'h:mm a' }}          
+        </div>
+        <div class="col-md-1">
+          {{flight.arrivalTime | date: 'h:mm a' }}
+          
+        </div>
+        <div class="col-md-1" >
+          <div *ngIf= "flight.status"> {{flight.status | uppercase}}</div>
+          
+        </div>
+
+        <div class="col-md-3 action">
+          <button mat-raised-button color="primary">Select</button>
+         
+        </div>
+      </div>
+    </div>
+    </section>
 </div>
 
 

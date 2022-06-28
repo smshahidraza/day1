@@ -1,16 +1,37 @@
 
 .flight-info {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background: #e6e694;
-    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: #f7f7e0;
+    margin-bottom: 5px;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 17px;
+}
+
+.flight-info-header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: #f8f8c6;
+    margin-bottom: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 17px;
 }
 
 .flight-info:hover {
     background-color: rgb(230, 230, 228);
 }
+
+.flight-info:hover .action {
+        display: inline-block;
+}
+
+.action {
+    display: none;
+    text-align: right;
+}
+
+
 
 .flight-error {
     color: red;

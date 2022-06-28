@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { User } from './user.model';
 
 @Component({
   selector: 'app-book-flight',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookFlightComponent implements OnInit {
 
-  constructor() { }
+  userList: User[];
+  
+  constructor( private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http.get<User[]>('https://jsonplaceholder.typicode.com/posts').subscribe ( response => {
+      this.userList = response;
+    });
   }
 
 }
