@@ -26,6 +26,7 @@ export class FlightInfoComponent implements OnInit {
         "arrivalTime": new Date("26 June 2022 19:40:00 EDT"),
         "origin": "Delhi",
         "destination": "Patna",
+        "cost": 1000.00,
         "status": "On Time"
       },
       {
@@ -38,6 +39,7 @@ export class FlightInfoComponent implements OnInit {
         "arrivalTime": new Date("26 June 2022 19:40:00 EDT"),
         "origin": "Delhi",
         "destination": "Mumbai",
+        "cost": 10000.00,
         "status": "Delayed"
       },
       {
@@ -50,6 +52,7 @@ export class FlightInfoComponent implements OnInit {
         "arrivalTime": new Date("26 June 2022 19:40:00 EDT"),
         "origin": "Washington",
         "destination": "Delhi",
+        "cost": 3000.00,
         "status": "Canceled"
       },
       {
@@ -62,6 +65,7 @@ export class FlightInfoComponent implements OnInit {
         "arrivalTime": new Date("26 June 2022 19:40:00 EDT"),
         "origin": "Patna",
         "destination": "BiharSharif",
+        "cost": 4400.00,
         "status": "On Time"
       },
       {
@@ -74,6 +78,7 @@ export class FlightInfoComponent implements OnInit {
         "arrivalTime": new Date("26 June 2022 19:40:00 EDT"),
         "origin": "Gaya",
         "destination": "Kolkatta",
+        "cost": 2000.00,
         "status": "On Time"
       }  
 
@@ -84,6 +89,13 @@ export class FlightInfoComponent implements OnInit {
     // console.log(age);
   }
 
+  public getDuration(departureTime, arrivalTime): string {
+    const depart: Date = new Date(departureTime);
+    const arrival: Date = new Date(arrivalTime);
 
+    const diff = arrival.getTime() - depart.getTime();
+    const duration = new Date(diff);
+    return " " + duration.getHours() + " hr " + duration.getMinutes() + " mins";
+  }
 
 }

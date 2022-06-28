@@ -9,5 +9,6 @@ export class FlightInfoModel {
     arrivalTime?: Date;
     origin: string;
     destination: string
+    cost: number;
     status: string;
 }

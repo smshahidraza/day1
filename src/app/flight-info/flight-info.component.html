@@ -19,18 +19,18 @@
        
           Flight
       </div>
-      <div class="col-md-2">
+      <div class="col-md-1">
        
         <mat-icon>flight_takeoff</mat-icon>
         
-        Departure
+       
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
      
         <mat-icon>flight_land</mat-icon>
      
 
-      Arrival
+     
   </div>
   <div class="col-md-1">
      
@@ -41,7 +41,13 @@
   Arrival
 </div>
 <div class="col-md-1">
-  <mat-icon>build</mat-icon> 
+  Duration
+</div>
+<div class="col-md-1">
+  Fare
+</div>
+
+<div class="col-md-1">
   status
 </div>
 
@@ -71,6 +77,13 @@
         <div class="col-md-1">
           {{flight.arrivalTime | date: 'h:mm a' }}
           
+        </div>
+
+        <div  class="col-md-1">
+          {{getDuration(flight.departureTime, flight.arrivalTime)}}
+        </div>
+        <div  class="col-md-1">
+          {{flight.cost | currency: 'USD' }}
         </div>
         <div class="col-md-1" >
           <div *ngIf= "flight.status"> {{flight.status | uppercase}}</div>
