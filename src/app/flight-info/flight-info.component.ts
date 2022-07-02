@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlightInfoModel } from './flight-info.model';
+// import { FlightWidgetComponent } from '../flight-widget';
 
 @Component({
   selector: 'app-flight-info',

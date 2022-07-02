@@ -10,12 +10,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import {FlightWidgetComponent} from './flight-widget/flight-widget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FlightInfoComponent,
     BookFlightComponent,
+    FlightWidgetComponent, 
    
   ],
   imports: [

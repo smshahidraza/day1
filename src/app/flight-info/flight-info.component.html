@@ -8,8 +8,22 @@
     
 </div>
 
-
 <div class="container">
+
+  <div class="row " style="padding-top: 10px; padding-bottom: 10px">                
+    <div class="col-md-3 flight-widget">
+      <app-flight-widget [title] = "'Shortest Flight'" [flightName] = "'A1 410'" [cost] = "'700'">  </app-flight-widget>       
+      </div>
+    <div class="col-md-3 flight-widget">
+      <app-flight-widget [title] = "'Cheapest Flight'" [flightName] = "'A1 404'" [cost] = "'100'">  </app-flight-widget>
+    </div>
+    <div class="col-md-3 flight-widget">
+      <app-flight-widget [title]= "'Longest Flight'" [flightName] = "'A1 500'" [cost] = "'800'">  </app-flight-widget>
+    </div>
+  </div>
+  
+
+
   <section>
     <div *ngIf="flightInfo == null" class="row flight-info flight-error">
         Flight Information not available
@@ -83,7 +97,7 @@
           {{getDuration(flight.departureTime, flight.arrivalTime)}}
         </div>
         <div  class="col-md-1">
-          {{flight.cost | currency: 'USD' }}
+          {{flight.cost | currency: 'INR' }}
         </div>
         <div class="col-md-1" >
           <div *ngIf= "flight.status"> {{flight.status | uppercase}}</div>
