@@ -12,13 +12,13 @@
 
   <div class="row " style="padding-top: 10px; padding-bottom: 10px">                
     <div class="col-md-3 flight-widget">
-      <app-flight-widget [title] = "'Shortest Flight'" [flightName] = "'A1 410'" [cost] = "'700'">  </app-flight-widget>       
-      </div>
-    <div class="col-md-3 flight-widget">
-      <app-flight-widget [title] = "'Cheapest Flight'" [flightName] = "'A1 404'" [cost] = "'100'">  </app-flight-widget>
+      <app-flight-widget  [title] = "'Shortest Flight'" [flightInfo] = "flightInfo[0]" >  </app-flight-widget>       
     </div>
     <div class="col-md-3 flight-widget">
-      <app-flight-widget [title]= "'Longest Flight'" [flightName] = "'A1 500'" [cost] = "'800'">  </app-flight-widget>
+      <app-flight-widget [title] = "'Cheapest Flight'"  [flightInfo] = "flightInfo[1]" >  </app-flight-widget>
+    </div>
+    <div class="col-md-3 flight-widget">
+      <app-flight-widget [title]= "'Longest Flight'"  [flightInfo] = "flightInfo[3]" >  </app-flight-widget>
     </div>
   </div>
   

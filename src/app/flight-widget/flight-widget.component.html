@@ -1,3 +1,4 @@
         <h3> {{title}}</h3>
-        <p>{{flightName}} </p>           
-        <p> Cost: {{cost | currency: 'USD'}}</p>
+        <p>{{flightInfo.flightNumber}} </p>           
+        <p>{{flightInfo.origin}} -- {{flightInfo.destination}} </p>           
+        <p> Cost: {{flightInfo.cost | currency: 'USD'}}</p>

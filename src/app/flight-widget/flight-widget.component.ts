@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FlightInfoModel } from '../flight-info/flight-info.model';
 
 @Component({
   selector: 'app-flight-widget',
@@ -15,6 +16,9 @@ export class FlightWidgetComponent implements OnInit {
 
   @Input()
   cost = '';
+
+  @Input()
+  flightInfo: FlightInfoModel;
 
   constructor() { }
 

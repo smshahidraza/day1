@@ -9,9 +9,9 @@ import { FlightInfoModel } from './flight-info.model';
 })
 
 export class FlightInfoComponent implements OnInit {
-
+  
   flightInfo: FlightInfoModel[] ;
-
+ 
   constructor() { }
 
   ngOnInit(): void {
