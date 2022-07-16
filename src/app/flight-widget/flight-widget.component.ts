@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FlightInfoModel } from '../flight-info/flight-info.model';
 
 @Component({
@@ -20,9 +20,18 @@ export class FlightWidgetComponent implements OnInit {
   @Input()
   flightInfo: FlightInfoModel;
 
+  
+  @Output() flightSelectedEvent = new EventEmitter<string>();
+
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selectedFlight(value: string) {
+    console.log("flight selected : " + value);
+    this.flightSelectedEvent.emit(value);
   }
 
 }

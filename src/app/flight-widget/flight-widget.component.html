@@ -1,4 +1,6 @@
         <h3> {{title}}</h3>
         <p>{{flightInfo.flightNumber}} </p>           
         <p>{{flightInfo.origin}} -- {{flightInfo.destination}} </p>           
-        <p> Cost: {{flightInfo.cost | currency: 'USD'}}</p>
+        <p> Cost: {{flightInfo.cost | currency: 'USD'}}  <button mat-raised-button color="primary" (click)="selectedFlight(flightInfo.flightNumber)">Go >></button></p>
+        
+       

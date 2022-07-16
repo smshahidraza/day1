@@ -3,7 +3,8 @@
 <div class="container">
     <div class="jumbotron">
       <h1>Flight Search Application</h1>
-      <h2>Search flight </h2>
+      <h2>Search flight </h2>   
+      <h3 >Selected Flight -- {{flightSelected}}</h3>
     </div>
     
 </div>
@@ -12,13 +13,13 @@
 
   <div class="row " style="padding-top: 10px; padding-bottom: 10px">                
     <div class="col-md-3 flight-widget">
-      <app-flight-widget  [title] = "'Shortest Flight'" [flightInfo] = "flightInfo[0]" >  </app-flight-widget>       
+      <app-flight-widget  [title] = "'Shortest Flight'" [flightInfo] = "shortestFlightInfo" (flightSelectedEvent) = "selectedFlight($event)">  </app-flight-widget>       
     </div>
     <div class="col-md-3 flight-widget">
-      <app-flight-widget [title] = "'Cheapest Flight'"  [flightInfo] = "flightInfo[1]" >  </app-flight-widget>
+      <app-flight-widget [title] = "'Cheapest Flight'"  [flightInfo] = "flightInfo[1]" (flightSelectedEvent) = "selectedFlight($event)">  </app-flight-widget>
     </div>
     <div class="col-md-3 flight-widget">
-      <app-flight-widget [title]= "'Longest Flight'"  [flightInfo] = "flightInfo[3]" >  </app-flight-widget>
+      <app-flight-widget [title]= "'Longest Flight'"  [flightInfo] = "flightInfo[3]" (flightSelectedEvent) = "selectedFlight($event)">  </app-flight-widget>
     </div>
   </div>
   
