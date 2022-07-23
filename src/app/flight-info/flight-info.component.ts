@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FlightInfoModel } from './flight-info.model';
 import { FlightService} from './flight.service';
 
@@ -14,14 +16,17 @@ export class FlightInfoComponent implements OnInit {
   
   flightInfo: FlightInfoModel[] ;
   shortestFlightInfo: FlightInfoModel;
-
+  user: any;
   flightSelected: string = 'Not selected';
 
-  constructor(private flightService: FlightService) { }
+  constructor(private flightService: FlightService,
+    private router: Router,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
     this.flightInfo = this.flightService.getFlightInfo();
     this.shortestFlightInfo = this.flightService.getShortestFlightInfo(0);
+
     
     // let age: number = 44;
     // console.log(age);
@@ -44,8 +49,11 @@ export class FlightInfoComponent implements OnInit {
     } else {
       this.flightSelected = value;
     }
+  } 
+
+  public loadBookFlightPage(flightId: number){
+    console.log(flightId, flightId);
+    this.router.navigate(['/book-flight', flightId]);
   }
-
-
 
 }

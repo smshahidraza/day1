@@ -76,7 +76,7 @@
         <div class="col-md-2">
             <!-- <img src="{{flight.logo}}" width="25px" height="25px" /> -->
             <mat-icon> flight</mat-icon>
-            {{flight.flightNumber}}            
+            <a [routerLink]="['/book-flight', flight.flightNumber]">{{flight.flightNumber}}  </a>          
           </div>
         <div class="col-md-1">      
          
@@ -106,7 +106,7 @@
         </div>
 
         <div class="col-md-3 action">
-          <button mat-raised-button color="primary">Select</button>
+          <button mat-raised-button color="primary" (click)="loadBookFlightPage(flight.flightNumber)">Select</button>
          
         </div>
       </div>

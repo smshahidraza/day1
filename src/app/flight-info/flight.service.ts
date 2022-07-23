@@ -50,7 +50,7 @@ export class FlightService {
     {
       "id": "0004",
       "logo": "",
-      "flightNumber" : "G8 165",
+      "flightNumber" : "G8165",
       "originAirport" : "PAT",
       "destAirport": "BHS",
       "departureTime": new Date("26 June 2022 19:40:00 EDT"),
@@ -63,7 +63,7 @@ export class FlightService {
     {
       "id": "0005",
       "logo": "",
-      "flightNumber" : "G8 131",
+      "flightNumber" : "G8131",
       "originAirport" : "GYA",
       "destAirport": "KOL",
       "departureTime": new Date("27 June 2022 16:40:00 EDT"),
@@ -84,5 +84,12 @@ export class FlightService {
 
   public getShortestFlightInfo(index: number): FlightInfoModel {
     return this.flightInfo[index];
+  }
+
+  public getFlightInfoForFlightNumber(flightNumber: string): FlightInfoModel {
+    let flightInfo = this.flightInfo.find(flight => {
+      return flight.flightNumber === flightNumber
+    });
+    return flightInfo;
   }
 }
