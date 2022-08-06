@@ -3,6 +3,7 @@
     <div class="jumbotron">
       <h1>Flight Search Application</h1>
       <h2>Select flight </h2>   
+      <h2>{{fullName}}</h2>
       <h3 ></h3>
     </div>
     
@@ -10,25 +11,97 @@
 
 <div class="container">
 
+  
   <div class="row" style="padding-top: 10px; padding-bottom: 10px; font-size: 20px;">                
     
     
-    <div class="col-4">
+    <div class="col-sm-4">
       <div>Flight: {{flightInfo.flightNumber}}</div>
       <div>{{flightInfo.originAirport}} - {{flightInfo.destAirport}}</div>
+      <div><a routerLink="/employee"> Employee </a></div>
 
     </div>
-    <div class="col-8">
-
-       <p>List User Information....</p>
-         <!-- {{user | json}} -->
-      <ul>
-       <li *ngFor="let user of userList">
-        
-          <span> Id : {{user.id}}</span>          
-          <span> -- Title : {{user.title}}</span>          
-       </li>
-      </ul>
+    <div *ngIf="showConfirmation">
+      <h1> Thanks {{fullName}}</h1>
+      <h2> We will contact you on your email address {{emailAddress}}</h2>
     </div>
+    <div *ngIf="!showConfirmation" class="col-sm-8">
+      <div *ngIf="errorMessage">Error: {{errorMessage}}</div>
+      <p>Passenger Information</p> 
+     
+      <form [formGroup]="passengerForm" (ngSubmit)="onSubmit()">
+        <div class="row user-input" >
+          <div class="col-sm-3">First Name</div>
+          <div class="col-sm-9">
+            <input type="text" 
+            class="form-control" 
+            placeholder="Enter first name"
+            formControlName = "firstName" /> </div>
+       
+        </div>
+        <div class="row user-input" >
+          <div class="col-sm-3">Last Name</div>
+          <div class="col-sm-9">
+            <input type="text" 
+            class="form-control" 
+            placeholder="Enter Last name"
+            formControlName = "lastName"
+            />
+            <div class="alert alert-danger" role="alert" *ngIf="lastName.errors && (lastName.touched || lastName.dirty)">              
+              <div *ngIf="lastName.errors?.required">
+                Last Name is required.
+              </div>
+              <div *ngIf="lastName.errors?.minlength">
+                Last Name must be at least 3 characters long.
+              </div>
+              <div *ngIf="lastName.errors?.maxlength">
+                Last Name must be at least 10 characters long.
+              </div>
+              
+            </div>
+          </div>
+
+        </div>
+        <div class="row user-input" >
+          <div class="col-sm-3">Email</div>
+          <div class="col-sm-9">
+            <input type="text" 
+            class="form-control" 
+            placeholder="Enter Email"
+            formControlName = "email"
+            />
+            <div class="alert alert-danger" role="alert" *ngIf="email.errors && (email.touched || email.dirty)">              
+              <div *ngIf="email.errors?.required">
+                Email Name is required.
+              </div>
+              <div *ngIf="email.errors?.email">
+                Invalid email address.
+              </div>
+            </div>
+          </div>
+  
+
+        </div>
+
+
+        <button class="btn btn-primary"  [disabled]="!passengerForm.valid" type="submit">Submit</button> 
+
+     </form>
+     
+     
+     <div class="row" style="padding-top: 10px ">
+      <div class="col-sm-12">Template Driven Form</div>
+    </div>
+     <div class="row" style="padding-top: 10px ">
+      
+     
+      <div class="col-sm-3">Full Name</div>
+      <div class="col-sm-9"><input type="text" 
+        class="form-control" 
+        placeholder="Enter full name"
+        [(ngModel)]="fullName" /> </div>
+    </div>
+    </div>
+    
 </div>
 </div>
