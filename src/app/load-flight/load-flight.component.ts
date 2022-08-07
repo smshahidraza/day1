@@ -22,10 +22,15 @@ export class LoadFlightComponent implements OnInit {
   public firstName: FormControl;
   public lastName: FormControl;
   public email: FormControl;
+  public seat: FormControl;
+
   public  showConfirmation = false;
   public fullName = "";
   public emailAddress;
   public errorMessage;
+  // public seat:number;
+  public seatList:number[];
+  public laptop;
 
   constructor( 
     private flightService: FlightService,
@@ -33,16 +38,26 @@ export class LoadFlightComponent implements OnInit {
     private http: HttpClient) { }
 
   ngOnInit(): void {
-      
+    
+    this.seatList = Array(30).fill(1).map((x,i) => i + 1 );
+
+    this.laptop = 
+    {
+      brand: 'Dell',
+      year: 2000
+    }
+    
     this.firstName = new FormControl('', Validators.required);
     this.lastName = new FormControl('', [ Validators.required, Validators.minLength(3), Validators.maxLength(10)]);
     this.email = new FormControl('', [Validators.required, Validators.email]);
+    this.seat = new FormControl('');
+
     this.passengerForm = new FormGroup({
       'firstName': this.firstName,
       'lastName' : this.lastName,
-      'email': this.email   
-    }),
-
+      'email': this.email,
+      'seat': this.seat
+    });
 
     this.activatedRoute.params.subscribe(param => {
       const flightNumber = param['id'];

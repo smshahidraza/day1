@@ -24,10 +24,12 @@
     <div *ngIf="showConfirmation">
       <h1> Thanks {{fullName}}</h1>
       <h2> We will contact you on your email address {{emailAddress}}</h2>
+      <p> Number of seats: {{seat.value}} </p>
     </div>
     <div *ngIf="!showConfirmation" class="col-sm-8">
       <div *ngIf="errorMessage">Error: {{errorMessage}}</div>
       <p>Passenger Information</p> 
+      <p>laptop -- {{laptop.brand}}</p>
      
       <form [formGroup]="passengerForm" (ngSubmit)="onSubmit()">
         <div class="row user-input" >
@@ -83,6 +85,14 @@
 
         </div>
 
+        <div class="row user-input" >
+          <div class="col-sm-3">Seat</div>
+          <div class="col-sm-9">
+            <select class="form-control"  formControlName="seat">
+              <option *ngFor = "let s of seatList" value="{{s}}">{{s}}</option>
+            </select>
+        </div>
+        </div>
 
         <button class="btn btn-primary"  [disabled]="!passengerForm.valid" type="submit">Submit</button> 
 
